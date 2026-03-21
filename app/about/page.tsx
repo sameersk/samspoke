@@ -62,7 +62,7 @@ export default function AboutPage() {
               </p>
               <p className="text-lg text-slate-600 leading-relaxed mb-8">
                 From how AI is reshaping industries to the small habits that
-                compound into big results — Sam&apos;s Spoke is my space to think in
+                compound into big results — samspoke is my space to think in
                 public, share what I&apos;m learning, and start conversations about
                 the ideas that matter.
               </p>
@@ -122,7 +122,7 @@ export default function AboutPage() {
               where the interesting work happens.
             </p>
             <p>
-              I started Sam&apos;s Spoke because I wanted a place to work through
+              I started samspoke because I wanted a place to work through
               ideas at the intersection of business and technology — topics I care
               about and find genuinely interesting, not just professionally relevant.
               The goal has always been to write things I&apos;d want to read myself:
