@@ -8,40 +8,46 @@ import { getAllPosts } from "@/lib/posts";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Sameer is a writer and analyst exploring the intersection of business strategy, data analytics, AI, and sustainability — based in Singapore.",
+    "Sameer is a decision analytics consultant at ZS Associates and writer exploring business strategy, data, AI, and sustainability — based in Singapore.",
 };
 
 const focusAreas = [
   {
     icon: "🤖",
     title: "AI & Technology",
-    desc: "How artificial intelligence is transforming industries, workflows, and decision-making.",
+    desc: "How artificial intelligence is transforming industries, workflows, and decision-making — and where the hype ends and real value begins.",
   },
   {
     icon: "🌱",
     title: "Sustainability",
-    desc: "The business case for green, the tensions between growth and planet, and what real progress looks like.",
+    desc: "The business case for green, the tensions between growth and planet, and what genuine progress looks like beyond the press release.",
   },
   {
     icon: "📊",
     title: "Data & Analytics",
-    desc: "Making sense of data to make better decisions — frameworks, pitfalls, and practical tools.",
+    desc: "Making sense of data to make better decisions — frameworks, pitfalls, and the gap between what the numbers say and what they mean.",
   },
   {
     icon: "💼",
     title: "Business Strategy",
-    desc: "How companies compete, adapt, and build lasting advantage in a changing world.",
+    desc: "How companies compete, adapt, and build lasting advantage — and the commercial decisions that separate good analysis from real impact.",
   },
   {
     icon: "⚡",
     title: "Productivity",
-    desc: "The habits, systems, and environments that help individuals do their best work consistently.",
+    desc: "The habits, systems, and mental models that help people do their best work consistently — without burning out.",
   },
+];
+
+const highlights = [
+  { stat: "$600K+", label: "analytics engagement currently leading" },
+  { stat: "$10M+", label: "monthly pharma sales enabled through segmentation" },
+  { stat: "<4%", label: "forecasting error margin achieved" },
+  { stat: "245K+", label: "students impacted through education programme" },
 ];
 
 export default function AboutPage() {
   const recentPosts = getAllPosts().slice(0, 2);
-
   return (
     <div className="min-h-screen bg-white">
       {/* Hero */}
@@ -55,20 +61,23 @@ export default function AboutPage() {
                 Hi, I&apos;m Sameer.
               </h1>
               <p className="text-lg text-slate-600 leading-relaxed mb-5">
-                I&apos;m a writer and analyst exploring the intersection of business
-                strategy, data analytics, artificial intelligence, and
-                sustainability. Based in Singapore, I write to make complex ideas
-                accessible and actionable.
+                I&apos;m a decision analytics consultant at{" "}
+                <span className="font-semibold text-slate-800">ZS Associates</span>, where I work
+                with Fortune 500 pharmaceutical companies on brand strategy, commercial analytics,
+                and the data infrastructure behind major product decisions. Based in Singapore.
               </p>
               <p className="text-lg text-slate-600 leading-relaxed mb-8">
-                From how AI is reshaping industries to the small habits that
-                compound into big results — samspoke is my space to think in
-                public, share what I&apos;m learning, and start conversations about
-                the ideas that matter.
+                I started samspoke as a place to think in public — to write about the ideas that
+                interest me at the intersection of business, data, and technology. Mostly things I
+                wish someone had explained more clearly when I was trying to figure them out myself.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Link href="/blog" className="btn-primary">Read the Blog</Link>
-                <Link href="#newsletter" className="btn-outline">Subscribe</Link>
+                <Link href="/blog" className="btn-primary">
+                  Read the Blog
+                </Link>
+                <Link href="#newsletter" className="btn-outline">
+                  Subscribe
+                </Link>
               </div>
             </div>
 
@@ -79,7 +88,7 @@ export default function AboutPage() {
                 <div className="relative w-64 h-72 sm:w-72 sm:h-80 rounded-3xl overflow-hidden border-4 border-white shadow-xl">
                   <Image
                     src="/headshot.jpg"
-                    alt="Sameer — writer and analyst"
+                    alt="Sameer — analytics consultant and writer"
                     fill
                     className="object-cover object-top"
                     sizes="(max-width: 640px) 256px, 288px"
@@ -91,67 +100,157 @@ export default function AboutPage() {
         </div>
       </div>
 
-      {/* What I write about */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="mb-10">
-          <h2 className="section-heading">What I write about</h2>
-          <p className="section-subheading">Five lenses on the modern world of work and technology.</p>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {focusAreas.map((area) => (
-            <div key={area.title} className="card p-6 hover:border-teal-200 hover:bg-teal-50/30 transition-all">
-              <span className="text-3xl mb-3 block">{area.icon}</span>
-              <h3 className="font-bold text-slate-900 mb-2">{area.title}</h3>
-              <p className="text-sm text-slate-500 leading-relaxed">{area.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Why I write */}
-      <div className="bg-slate-50 px-4 sm:px-6 lg:px-8 py-20 border-t border-b border-slate-100">
-        <div className="max-w-3xl mx-auto">
-          <span className="tag tag-teal mb-4 inline-block">Philosophy</span>
-          <h2 className="section-heading mb-6">Why I write</h2>
-          <div className="space-y-4 text-slate-600 text-base leading-relaxed">
-            <p>
-              Writing forces clarity. Most ideas sound good in your head — it&apos;s
-              only when you try to explain them on paper that you discover whether
-              they actually hold up. That tension between thinking and writing is
-              where the interesting work happens.
-            </p>
-            <p>
-              I started samspoke because I wanted a place to work through
-              ideas at the intersection of business and technology — topics I care
-              about and find genuinely interesting, not just professionally relevant.
-              The goal has always been to write things I&apos;d want to read myself:
-              clear-eyed, evidence-informed, and useful without being preachy.
-            </p>
-            <p>
-              If something I write makes you see a problem differently, or gives
-              you a framework you didn&apos;t have before, that&apos;s a win. If it
-              starts a conversation — even better.
-            </p>
+      {/* By the numbers */}
+      <div className="bg-white px-4 sm:px-6 lg:px-8 py-16 border-b border-slate-100">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+            {highlights.map((h) => (
+              <div key={h.stat} className="text-center">
+                <div className="text-3xl sm:text-4xl font-extrabold text-teal-600 mb-1">
+                  {h.stat}
+                </div>
+                <div className="text-sm text-slate-500 leading-snug">{h.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Recent posts */}
+      {/* My story */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="section-heading">Recent articles</h2>
-          <Link href="/blog" className="text-sm font-semibold text-teal-600 hover:text-teal-800 transition-colors flex items-center gap-1">
-            View all
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 items-start">
+          <div>
+            <span className="tag tag-teal mb-4 inline-block">Background</span>
+            <h2 className="section-heading mb-6">An unlikely path to analytics</h2>
+            <div className="space-y-4 text-slate-600 text-base leading-relaxed">
+              <p>
+                I studied Biotechnology at R.V. College of Engineering in Bengaluru — not the most
+                obvious starting point for a career in commercial analytics. But the biotech
+                background turned out to be an asset: it taught me how to reason carefully under
+                uncertainty, and it gave me a genuine interest in the pharmaceutical industry I now
+                work in every day.
+              </p>
+              <p>
+                During my degree I worked on a predictive AI tool for identifying Alzheimer&apos;s-linked
+                genetic mutations, and presented COVID-19 treatment protocol research at a national
+                bioengineering conference. What I found, doing that work, was that the most
+                interesting problems weren&apos;t the science itself — they were the decisions the science
+                was supposed to inform.
+              </p>
+              <p>
+                That instinct led me to ZS Associates, a global consultancy focused on healthcare
+                commercial strategy. Since joining in 2023, I&apos;ve worked with Fortune 500 pharma
+                clients on brand analytics, field-force strategy, forecasting models, and product
+                launch execution — the decisions that determine whether a drug actually reaches the
+                patients who need it.
+              </p>
+            </div>
+          </div>
+          <div>
+            <span className="tag tag-teal mb-4 inline-block">Today</span>
+            <h2 className="section-heading mb-6">What I do now</h2>
+            <div className="space-y-4 text-slate-600 text-base leading-relaxed">
+              <p>
+                I&apos;m currently leading a $600K brand strategy and analytics engagement with a
+                team of four — managing end-to-end delivery across stakeholder management, solution
+                design, and quality governance. It&apos;s the kind of work where the quality of the
+                analysis is only half the challenge; the other half is making sure the right people
+                understand it and act on it.
+              </p>
+              <p>
+                Before that, I designed field-force targeting and segmentation frameworks that
+                supported over $10M in monthly product sales, and partnered with forecasting teams
+                to bring error margins below 4%. I also sold and delivered a process automation
+                initiative that generated $40K in annual client savings — work that started as a
+                problem I noticed in how analytics outputs were being produced and escalated into a
+                formal engagement.
+              </p>
+              <p>
+                Away from consulting, I&apos;ve always had one foot in education and social impact. Early
+                in my career I helped design an entrepreneurship programme that eventually scaled —
+                with NCERT — to reach 245K+ students across Delhi public schools and seed 40K
+                student-led ventures.
+              </p>
+            </div>
+          </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {recentPosts.map((post) => (
-            <BlogCard key={post.slug} post={post} />
-          ))}
+      </div>
+
+      {/* What I write about */}
+      <div className="bg-slate-50 px-4 sm:px-6 lg:px-8 py-20 border-t border-b border-slate-100">
+        <div className="max-w-6xl mx-auto">
+          <div className="mb-10">
+            <h2 className="section-heading">What I write about</h2>
+            <p className="section-subheading">
+              Five lenses on the modern world of work and technology.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {focusAreas.map((area) => (
+              <div
+                key={area.title}
+                className="card p-6 hover:border-teal-200 hover:bg-teal-50/30 transition-all"
+              >
+                <span className="text-3xl mb-3 block">{area.icon}</span>
+                <h3 className="font-bold text-slate-900 mb-2">{area.title}</h3>
+                <p className="text-sm text-slate-500 leading-relaxed">{area.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Why I write */}
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <span className="tag tag-teal mb-4 inline-block">Philosophy</span>
+        <h2 className="section-heading mb-6">Why I write</h2>
+        <div className="space-y-4 text-slate-600 text-base leading-relaxed">
+          <p>
+            A lot of my work involves turning complex analyses into decisions — and the hardest
+            part is usually not the analysis. It&apos;s the communication: making sure the insight
+            actually lands with the person who needs to act on it. Writing is, in many ways, the
+            same problem at a different scale.
+          </p>
+          <p>
+            I started samspoke because I kept noticing ideas I couldn&apos;t find explained clearly
+            anywhere — about how data misleads, how persuasion actually works, why some people
+            avoid burnout while others don&apos;t. Writing them out forces me to test whether I
+            actually understand them, or whether I just think I do. The tension between those two
+            things is where most of the interesting work happens.
+          </p>
+          <p>
+            The goal has always been to write things I&apos;d want to read myself: specific,
+            evidence-informed, honest about uncertainty. If something I write gives you a framework
+            you didn&apos;t have before — or makes you question one you did — that&apos;s a win.
+          </p>
+        </div>
+      </div>
+
+      {/* Recent posts */}
+      <div className="bg-slate-50 px-4 sm:px-6 lg:px-8 py-20 border-t border-slate-100">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="section-heading">Recent articles</h2>
+            <Link
+              href="/blog"
+              className="text-sm font-semibold text-teal-600 hover:text-teal-800 transition-colors flex items-center gap-1"
+            >
+              View all
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {recentPosts.map((post) => (
+              <BlogCard key={post.slug} post={post} />
+            ))}
+          </div>
         </div>
       </div>
 
