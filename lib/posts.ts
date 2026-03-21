@@ -1,160 +1,254 @@
-export type Post = {
-  slug: string;
+export interface Post {
   title: string;
+  slug: string;
   excerpt: string;
   date: string;
+  author: string;
+  readingTime: string;
   category: string;
   featured: boolean;
-  readingTime: string;
+  image: string;
   content: string;
-};
+}
 
-export const posts: Post[] = [
+const posts: Post[] = [
   {
-    slug: "ai-reshape-business-next-5-years",
+    title: "Could You Over-Rely on Analytics?",
+    slug: "over-relying-on-analytics",
+    excerpt:
+      "Data is definitive — or so we think. A deep dive into the cognitive biases that make even careful analysts see patterns that aren't there, and what to do about it.",
+    date: "March 21, 2026",
+    author: "Sameer",
+    readingTime: "7 min read",
+    category: "Data & Analytics",
+    featured: true,
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=600&fit=crop&q=80",
+    content: `
+      <p>I'm someone who looks to data and numbers far more often than most people around me. Even for simple daily questions — say, clothing choices — I'm swayed more by large-scale studies that show correlations between a pattern and how it's perceived than by a garment's flashiness. I feel confident making decisions for myself (and advising others) only after I've seen the data speak. After all, when you see an analysis based on real-world data, how could it be misleading? If anything is misleading, it's intuition. Take air travel: many people feel nervous about flying purely for emotional reasons. If they leaned on data, they'd know air travel is in fact the safest mode of transport by far.</p>
+
+      <p>Recently, someone planted a question in my head: is it possible to over-rely on analytics or data? At first, the question sounded counterintuitive. Data is definitive, and if it's reliably sourced, it simply reports the truth it observed. But dig a little deeper and you find strong cases where data — or, more precisely, our use of it — has misled people and caused large-scale impact.</p>
+
+      <p>Consider eBay. For a long time, internal dashboards showed a tight correlation between the number of digital ads a user saw and the likelihood that user would purchase. Budgets swelled accordingly. Only when the company ran careful holdout tests did the flaw come into focus: many of those ads were being shown to people already on their way to buy — brand searchers and loyal users. Ad exposure and purchase moved together, but the ads weren't <em>causing</em> most of the purchases. Correlation had been mistaken for causation, and expensive decisions followed.</p>
+
+      <p>Let's consider another example. A study of the incidence of kidney cancer in the 3,141 counties of the United States reveals a remarkable pattern. The counties in which the incidence of kidney cancer is lowest are mostly rural, sparsely populated, and located in traditionally Republican states in the Midwest, the South, and the West.</p>
+
+      <p>If you take a moment to analyse these results, your mind might conclude that rural life — clean air and water, fresh food — protects against cancer. But now consider the counties with the <em>highest</em> incidence. They, too, tend to be mostly rural, sparsely populated, and in those same regions. A second, equally tempting story appears: perhaps rural poverty and limited access to care drive higher cancer rates. Both stories can't be true in the way they're framed.</p>
+
+      <p>What's really going on is nothing more than the law of small numbers. When sample sizes are small — as they often are in sparsely populated counties — rates bounce around more because of randomness. Small samples produce more extreme values at both ends. The correct lesson is not that rural life prevents cancer or causes it, but that we should be wary of dramatic statistics from small denominators. Weighting by population, reporting uncertainty, or using hierarchical models that "shrink" noisy estimates toward the average tends to wash away the illusion.</p>
+
+      <p>None of this means you need advanced statistical training to avoid these fallacies. What it highlights is a deeper issue: our brains are predisposed to find patterns in everything around us — even when none exist. Far too often, analysts and business managers alike fall prey to the mind's tendency to suppress doubt and craft narratives from whatever information is at hand. When we extract "insights" from charts and quantitative summaries, it can feel like rigorous, critical thinking — but it's often the brain's fast, pattern-seeking system drawing associations and spinning stories, while the hard-thinking, sceptical system that questions the numbers stays suppressed.</p>
+
+      <p>This tendency has produced enormous losses: militaries seeing patterns where none exist and adopting ineffective strategies; large educational institutions launching sweeping reforms, only to discover they had done the opposite of improving outcomes for students.</p>
+
+      <p>Despite this, managers and analysts today are under intense pressure to find "actionable insights," even when they're scarce. As a result, they end up building narratives out of randomness. And because finding patterns in random events enlists the same cognitive machinery a fortune-teller uses to read meaning into a shuffled deck of cards, the hurried insights that result can be about as reliable as a psychic reading — only far more expensive.</p>
+
+      <h2>What to do about it</h2>
+
+      <p>Many of these pitfalls can be avoided by being deliberately sceptical of the stories your mind has constructed. Start by framing questions causally: compared with doing nothing — or with the best alternative — what difference does this action actually make? Whenever possible, build a credible counterfactual with randomised experiments, staggered rollouts, or geo-holdouts. When you can't randomise, use quasi-experimental methods and be explicit about the assumptions they require. Measure incrementality rather than simple correlation.</p>
+
+      <p>Ground the numbers in plain facts: always show how many cases you're basing a claim on, add a range rather than a single number, and when tiny groups are noisy, "borrow strength" from related groups to smooth the variance. Then stress-test the result — shift the date window, remove a quirky segment, try a different reasonable model. If the effect vanishes under small nudges, it isn't sturdy.</p>
+
+      <p>But the spreadsheet alone is never enough. Crosscheck patterns against what users and frontline teams report. Make sure incentives don't reward metric-gaming. Above all, be frank about uncertainty — give a range and the assumptions behind it, not a single magic number. Starting with the caveats is proven to shift the audience's focus away from narrative-weaving and toward critical thinking about the numbers themselves.</p>
+
+      <p>Data is one of the most powerful tools we have. The goal isn't to trust it less — it's to use it more honestly.</p>
+    `,
+  },
+  {
+    title: "Powerless Communication",
+    slug: "powerless-communication",
+    excerpt:
+      "Counter-intuitively, the speakers who project hesitation and doubt often persuade more effectively than those who project authority. Here's the science behind it.",
+    date: "March 14, 2026",
+    author: "Sameer",
+    readingTime: "6 min read",
+    category: "Productivity",
+    featured: false,
+    image:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&h=600&fit=crop&q=80",
+    content: `
+      <p>For discussing communication, probably the best scenario to start with is debating. Debating is all about persuasion. Especially in the absence of the ability to prove the credibility of facts, it solely depends on your inherent ability to do so. Adjudicating (or judging) in a debate involves a panel persuading each other about who won — and then convincing the losing teams why they lost, all within 15 minutes. Hence it's very common to receive advice on adjudication that you <em>must</em> be confident and display authority so that listeners don't doubt you — they believe you instead.</p>
+
+      <p>A few months ago, my college sent a contingent to participate in ABP (Asia's largest debating tournament), as we do every year. We also had a good number of breaks. But what was peculiar this time was that the participant who ended up breaking as an adjudicator was the opposite of what I just described. They often sounded neither courageous nor confident — rather, as a friend described it, nervous and timid. So this break seemed confusing to a lot of us.</p>
+
+      <p>Was the adjudicator so good that despite their nervousness, everyone was willing to score them very well? That's probably part of it. But what's more likely is that these typically undesirable traits acted as an <em>advantage</em> rather than a deterrent in convincing people. This is an instance of what's commonly referred to as <strong>powerless communication</strong> — the opposite of powerful communication.</p>
+
+      <p>Powerless communication involves expressing doubt and uncertainty rather than authority and confidence. It often involves markers such as:</p>
+
+      <ul>
+        <li><strong>Hesitations:</strong> "well," "um," "uh," "you know"</li>
+        <li><strong>Hedges:</strong> "kinda," "sorta," "maybe," "probably," "I think"</li>
+        <li><strong>Disclaimers:</strong> "this may be a bad idea, but…"</li>
+        <li><strong>Tag questions:</strong> "that's interesting, isn't it?" or "that's a good idea, right?"</li>
+        <li><strong>Intensifiers:</strong> "really," "very," "quite"</li>
+      </ul>
+
+      <p>This form of communication tends to benefit people in more than one scenario — which sounds counterintuitive. How can speaking less assertively, revealing weakness, and expressing doubt help you persuade others?</p>
+
+      <p>What happens in practice is that when people expose the chinks in their armour, it gives listeners the impression that they are honest and not trying to be deceptive or overly polished. It creates the perception that they're trying to help and understand rather than being slick. This builds trust, and trust builds credibility. It can also foster admiration when a person puts forward ideas vulnerably rather than hiding behind a veneer of authority.</p>
+
+      <h2>The competence caveat</h2>
+
+      <p>But there's a critical twist: all of this only works when the speaker also demonstrates genuine competence. In an experiment led by psychologist Elliot Aronson, participants listened to quiz audition tapes — half featuring average performers, half featuring experts (those scoring above 90%). Participants overwhelmingly favoured the experts. But there was a wrinkle: a subset of the auditioners were made to stumble accidentally. When an average performer showed clumsiness, they were perceived as annoying. When an expert stumbled, participants found them <em>more</em> likeable — more human, less distant. The pratfall, as Aronson called it, made the highly competent person warmer without undermining their credibility.</p>
+
+      <p>The implication is precise: powerless communication is a tool for the competent, not a crutch for the uncertain. If you genuinely know what you're talking about, showing a little vulnerability can close the gap between expertise and relatability. Without underlying competence, it just looks like uncertainty.</p>
+
+      <h2>Questions over declarations</h2>
+
+      <p>Another way people with powerless communication styles persuade more effectively is by expressing ideas as questions rather than declarations. Instead of saying "You should focus tonight," they might say "Are you willing to lose tonight?" When something is stated assertively, people tend to receive it with scepticism. Put forward as a question, people are more receptive — because the non-assertive framing allows the other person to feel they've arrived at the conclusion on their own terms, reducing psychological reactance. One study found that simply asking people "Are you going to vote?" increased their actual likelihood of voting by 41% — not because the question conveyed information, but because it invited reflection.</p>
+
+      <p>Like the pratfall effect, this too has a condition: it only works when people feel good about the intent behind the question. A leading question from someone who seems manipulative produces the opposite effect.</p>
+
+      <h2>Negotiation</h2>
+
+      <p>When it comes to negotiation, powerful communicators tend to push hard — presenting arguments forcefully and trying to get the other side to capitulate. Powerless communicators do something different: they ask questions, acknowledge concerns, and look for shared ground. Rather than bargaining, they explore. This approach often leads to agreements that actually hold, because the other party doesn't feel steamrolled into a position they'll later resent.</p>
+
+      <p>The takeaway isn't to become timid in all your conversations. It's to recognise that projecting confidence isn't the only path to persuasion. The most effective communicators know when to assert and when to step back — and it's often in those moments of stepping back that the deepest trust is built.</p>
+    `,
+  },
+  {
     title: "Why AI Will Reshape Every Business in the Next 5 Years",
+    slug: "why-ai-will-reshape-business",
     excerpt:
       "Artificial intelligence is no longer a technology story — it's a business strategy story. Here's why every company, regardless of industry, needs to reckon with it now.",
     date: "March 15, 2026",
+    author: "Sameer",
+    readingTime: "5 min read",
     category: "AI & Technology",
     featured: true,
-    readingTime: "5 min read",
+    image:
+      "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1200&h=600&fit=crop&q=80",
     content: `
-<h2>The Shift Has Already Begun</h2>
-<p>When historians look back at the 2020s, they won't describe AI as an emerging technology. They'll describe it as the single most disruptive force in the history of business — more consequential than the internet, more pervasive than mobile, and faster than either.</p>
-<p>That might sound hyperbolic. It isn't. The pace of AI adoption across industries over the last three years has been staggering. What's more remarkable is that we're still in the early innings.</p>
+      <p>For most of the past decade, artificial intelligence was framed as a technology problem. The question was whether the models were good enough, whether the data pipelines were reliable, whether the infrastructure could scale. Those questions are largely settled. The new question — the one that will determine winners and losers over the next five years — is whether your business can actually use AI to do something that matters.</p>
 
-<h2>It's Not About Robots Taking Jobs</h2>
-<p>The dominant cultural narrative around AI focuses on job displacement — which jobs will be automated, which roles will become obsolete. That's a real conversation worth having, but it misses a more immediate and more important business question: how do you compete when your competitors start making decisions 10x faster than you?</p>
-<p>AI doesn't just automate tasks. It compresses decision cycles. A business with AI-augmented analytics can spot market shifts in real-time, test hypotheses overnight, and deploy capital with a precision that was simply impossible five years ago. That's not a marginal advantage — it's a structural one.</p>
+      <p>That shift from a technology question to a strategy question changes almost everything about how companies should be thinking about AI. It moves the conversation from the IT department to the boardroom, from capability-building to competitive positioning, from "can we do this?" to "should we do this, and how fast?"</p>
 
-<h2>Three Waves Every Business Will Experience</h2>
-<p>Based on how AI adoption is playing out across sectors, most businesses will move through three distinct waves:</p>
-<ul>
-  <li><strong>Wave 1 — Automation:</strong> Repetitive, rules-based tasks get handed to machines. This is already happening at scale in customer service, data entry, and basic coding.</li>
-  <li><strong>Wave 2 — Augmentation:</strong> AI becomes a thinking partner. Analysts use AI to identify patterns in data. Marketers use it to personalize at scale. Strategists use it to model scenarios.</li>
-  <li><strong>Wave 3 — Transformation:</strong> Entire business models shift. New entrants build AI-native companies that out-compete incumbents not because they're smarter, but because they're architecturally different.</li>
-</ul>
-<p>Most large enterprises are in Wave 1. The most innovative are entering Wave 2. Wave 3 is where the real disruption lives — and it's closer than most boardrooms think.</p>
+      <h2>The compression of competitive advantage</h2>
 
-<h2>What This Means for Leaders</h2>
-<p>The executives who navigate this well won't be the ones who understand AI deepest. They'll be the ones who understand their business deepest and ask the right questions: Where are our slowest decisions? Where do we have data we're not using? Where does speed of insight actually drive competitive advantage?</p>
-<p>AI strategy isn't a technology roadmap — it's a business strategy conversation. The companies that get this right in the next five years will define their industries for the next twenty.</p>
+      <p>One of the most underappreciated effects of AI is how quickly it commoditises things that used to be sources of durable advantage. Writing, coding, analysis, customer service, basic design — these are increasingly things AI can do adequately, which means they can no longer serve as meaningful differentiators on their own.</p>
 
-<blockquote>The question isn't whether AI will reshape your business. It's whether you'll be the one doing the reshaping.</blockquote>
+      <p>What this creates is a kind of floor-raising effect across industries. The baseline quality of content, software, and service rises, which means any competitive advantage has to come from somewhere above the baseline — from taste, from judgment, from relationships, from the parts of the value chain that require genuine human insight or institutional knowledge.</p>
 
-<h2>Getting Started</h2>
-<p>You don't need to boil the ocean. Start with one high-value problem where better information would lead to a meaningfully better decision. Build there first. The organizational muscle you develop solving that problem is what will carry you through the waves to come.</p>
+      <h2>The talent reallocation problem</h2>
+
+      <p>Companies that adopt AI effectively don't just get faster versions of what they already do. They get the opportunity to redirect human attention toward higher-leverage work. A lawyer who used to spend 30% of their time on contract review can now spend that 30% on client strategy. An analyst who used to build reports from scratch can now focus on the questions those reports should be answering.</p>
+
+      <p>This is the opportunity — but it's also the challenge. Reallocating talent toward higher-leverage work requires knowing what higher-leverage work looks like, which requires strategic clarity that many organisations don't have. The companies that will benefit most from AI are the ones that already have a clear sense of where human judgment creates the most value.</p>
+
+      <h2>The compounding effect</h2>
+
+      <p>Perhaps the most important thing to understand about AI adoption is that it compounds. Companies that start integrating AI into their workflows now will, in two to three years, have meaningfully better models trained on their own data, meaningfully more refined processes, and meaningfully more experience at deploying AI responsibly. Companies that wait will face a gap that gets harder to close over time — not because the technology is inaccessible, but because the organisational learning required to use it well takes time that can't be compressed.</p>
+
+      <p>This isn't an argument for rushing. It's an argument for starting deliberately, with clear hypotheses about where AI creates value in your specific context, and building from there. The goal isn't AI adoption for its own sake — it's sustainable competitive advantage, with AI as one of the tools that creates it.</p>
     `,
   },
   {
-    slug: "sustainability-paradox-growth-vs-green",
     title: "The Sustainability Paradox: Growth vs. Green",
+    slug: "sustainability-paradox-growth-vs-green",
     excerpt:
       "Every company wants to be sustainable. Most also want to grow. These two goals aren't always compatible — and the companies being honest about that tension are the ones making real progress.",
     date: "March 8, 2026",
-    category: "Sustainability",
-    featured: true,
+    author: "Sameer",
     readingTime: "6 min read",
-    content: `
-<h2>The Uncomfortable Truth</h2>
-<p>There's a version of the sustainability story that goes like this: companies can grow and be green at the same time. Do things efficiently, reduce waste, use renewable energy, and profit follows. It's a clean narrative. It's also incomplete.</p>
-<p>The harder truth is that sustained economic growth — in its current form — is in genuine tension with planetary limits. Not all the time, not in every business model, but often enough that the companies producing the most thoughtful sustainability strategies are the ones willing to sit with that discomfort rather than paper over it.</p>
-
-<h2>Why Most ESG Strategies Fall Short</h2>
-<p>Walk into most large companies today and you'll find an ESG report, a net-zero commitment, and a sustainability team working hard on meaningful initiatives. You'll also often find that those teams operate at arm's length from the core strategy. Sustainability is treated as a cost center, a risk management function, or a PR exercise — rarely as a first-order input into product and business model decisions.</p>
-<p>The result is a familiar pattern: companies reduce their Scope 1 and Scope 2 emissions (direct emissions they control) while Scope 3 emissions (their value chain) continue to climb. Packaging gets recyclable while the underlying consumption model stays intact. Carbon offsets fill gaps that operational changes haven't closed.</p>
-<p>None of this is cynical. It's genuinely hard. But it's also not transformation.</p>
-
-<h2>The Companies Getting It Right</h2>
-<p>The sustainability leaders — the companies making structural, not cosmetic, change — share a few characteristics. They're embedding sustainability into product design from day one, not retrofitting it. They're pricing carbon internally, which changes which projects get funded. And perhaps most importantly, they're willing to say no to growth opportunities that don't meet their environmental criteria.</p>
-<p>That last point is the real differentiator. Anyone can set a 2050 net-zero target. The genuine test of commitment is the decision you make today that costs revenue in order to stay consistent with your values.</p>
-
-<h2>What Consumers Actually Want</h2>
-<p>Research consistently shows that consumers want sustainable products — and that a significant majority say they're willing to pay a premium for them. The gap between stated preference and purchasing behavior is well documented, but it's narrowing, especially among younger demographics who will make up the majority of consumer spending within a decade.</p>
-<p>The demand side is changing. The supply side needs to catch up — not because regulation is forcing it (though that's accelerating), but because the businesses that solve the growth-vs-green paradox first will hold a durable competitive advantage.</p>
-
-<blockquote>Sustainability isn't a constraint on good business. It's the definition of good business in a world of finite resources.</blockquote>
-
-<h2>The Path Forward</h2>
-<p>The paradox doesn't disappear — but it becomes navigable when companies stop treating sustainability as an add-on and start treating it as a design principle. That means longer time horizons, different metrics, and the organizational courage to make decisions that don't optimize for next quarter. Businesses that build that capability now will be well-positioned for the world that's coming.</p>
-    `,
-  },
-  {
-    slug: "making-better-decisions-with-data",
-    title: "Making Better Decisions with Data: A Practical Guide",
-    excerpt:
-      "Data doesn't make decisions. People do. The goal of analytics isn't to replace judgment — it's to calibrate it. Here's a practical framework for thinking with data.",
-    date: "February 28, 2026",
-    category: "Analytics",
+    category: "Sustainability",
     featured: false,
-    readingTime: "7 min read",
+    image:
+      "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=1200&h=600&fit=crop&q=80",
     content: `
-<h2>The Delusion of "Data-Driven"</h2>
-<p>Organizations love to call themselves data-driven. Boards love hearing it. Consultants love selling it. The problem is that "data-driven" has become a phrase that means everything and therefore nothing — and in its most common misapplication, it actually leads to worse decisions, not better ones.</p>
-<p>Data doesn't tell you what to do. Data describes what has happened. The leap from description to prescription always involves human judgment — assumptions about causality, beliefs about the future, and choices about what to optimize for. Pretending otherwise doesn't make you rigorous. It makes you overconfident.</p>
+      <p>The sustainability commitments of most large companies share a common structure: ambitious long-term targets, a set of near-term initiatives that don't quite add up to those targets, and a great deal of careful language about "progress" and "pathways." The gap between the stated ambition and the actual trajectory is rarely discussed directly. This is a problem — not because the companies are insincere, but because the gap reflects a genuine tension that isn't being honestly confronted.</p>
 
-<h2>A Better Frame: Data-Informed</h2>
-<p>The organizations making the best decisions treat data as an input to thinking, not a replacement for it. They ask: what does the data suggest? Where does it conflict with our intuition, and which should we trust more in this context? What's the data not capturing?</p>
-<p>This is a different posture than "the data says X, therefore we do X." It requires analysts who can communicate uncertainty, leaders who can hold ambiguity, and a culture that rewards honest assessment over confident-sounding conclusions.</p>
+      <p>The tension is this: most sustainability interventions, when done properly, increase costs in the short term. And most companies are under continuous pressure to grow revenue and manage costs. These two forces pull in opposite directions, and pretending they don't is one of the reasons corporate sustainability has a credibility problem.</p>
 
-<h2>Four Principles for Better Data Decisions</h2>
-<ul>
-  <li><strong>Start with the decision, not the data.</strong> Most analytical exercises go wrong because they start by pulling data and then figure out what story to tell. Work backwards from the decision you need to make. What information would actually change what you do? Collect that. Ignore the rest.</li>
-  <li><strong>Distinguish correlation from causation — always.</strong> This is the most common error in business analytics. Two things moving together doesn't mean one causes the other. Before acting on a correlation, ask: what's the mechanism? Can we test it?</li>
-  <li><strong>Build in your base rate.</strong> Human intuition is notoriously bad at base rates — we systematically overweight vivid recent examples and underweight statistical averages. Good data analysis forces you to ask: given everything we know about how often this works in similar situations, what should we expect?</li>
-  <li><strong>Name your assumptions explicitly.</strong> Every analytical model rests on assumptions. The best analysts write theirs down. When the model's output doesn't match reality, you can trace it back to which assumption was wrong — which means you learn something, rather than just updating your model blindly.</li>
-</ul>
+      <h2>The honest version of the problem</h2>
 
-<h2>The Human Side of the Equation</h2>
-<p>The biggest barrier to better data decisions isn't analytical — it's organizational. Data that contradicts a leader's prior belief tends to get re-analyzed until it agrees. Dashboards get built to support conclusions already reached. Analysts learn quickly which findings are welcome and which aren't.</p>
-<p>Fixing this isn't a technology problem. It's a culture problem. It requires leaders who genuinely reward being told they're wrong, and analysts with the confidence to deliver that message clearly.</p>
+      <p>Consider what it actually takes to decarbonise a manufacturing operation. You need to audit your full value chain, which is expensive and time-consuming. You need to switch suppliers, which involves renegotiating contracts and accepting higher input costs. You need to invest in new equipment, which ties up capital. And you need to do all of this while maintaining the output levels your business model requires. The companies that have actually done this will tell you it's not a quick win — it's a multi-year, capital-intensive programme that requires genuine organisational commitment.</p>
 
-<blockquote>The best analysts aren't the ones with the most sophisticated models. They're the ones most willing to say "I don't know — but here's how we'd find out."</blockquote>
+      <p>The companies that haven't done this but want to appear to have done it will tell you about their carbon offsets and their renewable energy certificates. These aren't worthless, but they're also not the same thing as actually reducing emissions, and conflating the two is a form of dishonesty — even when it's well-intentioned.</p>
 
-<h2>Practical Starting Points</h2>
-<p>If you want to make better decisions with data, start small. Pick one recurring decision your team makes. Map out what information currently goes into it, what information is missing, and what a better process would look like. Build rigor there before trying to transform everything at once. Good analytical habits are built one decision at a time.</p>
+      <h2>What real progress looks like</h2>
+
+      <p>The companies making the most credible progress on sustainability tend to share a few characteristics. First, they've accepted that some of their current business model may be incompatible with their sustainability commitments, and they're making structural changes rather than cosmetic ones. Second, they're being specific about what they're measuring and how — not hiding behind aggregate numbers that obscure the details. Third, they're willing to talk about the parts that are hard, including the tensions between growth and sustainability, rather than presenting only the successes.</p>
+
+      <p>None of this is comfortable. It requires admitting that progress is slower than you'd like, that some goals may be incompatible, and that the path isn't entirely clear. But it's the only version of sustainability leadership that actually builds trust — with customers, with investors, and with the people inside the organisation who have to execute on these commitments every day.</p>
     `,
   },
   {
-    slug: "small-habits-big-results",
-    title: "Small Habits, Big Results: Designing Your Day for Impact",
+    title: "The Productivity Trap: Why Doing More Often Means Achieving Less",
+    slug: "productivity-trap",
     excerpt:
-      "Dramatic transformations are overrated. The people who make the most consistent progress aren't doing extraordinary things — they're doing ordinary things with extraordinary consistency.",
-    date: "February 20, 2026",
+      "The most productive people aren't the ones with the longest to-do lists. They're the ones who've figured out which tasks actually matter — and have the discipline to ignore the rest.",
+    date: "March 1, 2026",
+    author: "Sameer",
+    readingTime: "5 min read",
     category: "Productivity",
     featured: false,
-    readingTime: "5 min read",
+    image:
+      "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=1200&h=600&fit=crop&q=80",
     content: `
-<h2>The Problem with Transformation Stories</h2>
-<p>We love a good transformation narrative. Person hits rock bottom. Person discovers a practice — meditation, cold showers, 5am workouts, fasting. Person rebuilds life. It's compelling because it suggests that dramatic change is possible through a single decisive shift.</p>
-<p>The problem is that this story is almost never how real, lasting change happens. Most dramatic-seeming transformations are actually the visible result of dozens of small, boring decisions made consistently over months or years — the transformation just looks sudden from the outside because we only notice it when it crosses a threshold.</p>
+      <p>There's a version of productivity that looks like activity: back-to-back meetings, an inbox cleared by end of day, a to-do list that grows and shrinks in roughly equal measure. This version of productivity feels productive. It's rarely actually productive.</p>
 
-<h2>The Compounding Logic of Small Habits</h2>
-<p>The math of compounding is deceptively powerful. Getting 1% better at something every day for a year doesn't make you 365% better — it makes you 37 times better. Getting 1% worse every day makes you essentially zero. The directionality of your small daily choices matters enormously over time, even when the individual choices feel trivial.</p>
-<p>This is why environment design matters more than motivation. Motivation is unreliable — it peaks and crashes with mood, energy, and circumstance. Your environment, on the other hand, operates constantly in the background, making certain behaviors easier or harder regardless of how you feel on a given day.</p>
+      <p>The confusion between activity and output is one of the most persistent problems in knowledge work, and it's getting worse. The tools designed to make us more productive — email, Slack, project management software — are also extraordinarily effective at generating the kind of activity that crowds out the work that matters. Every notification is a small interruption. Every meeting is an hour that isn't being spent on something else. Every task on a list is a decision about whether it deserves to be there.</p>
 
-<h2>Designing Your Environment for the Behaviors You Want</h2>
-<p>The most effective personal productivity systems are the ones that reduce friction for desired behaviors and increase friction for undesired ones. A few examples:</p>
-<ul>
-  <li>If you want to read more, put a book on your pillow in the morning. Put your phone in another room.</li>
-  <li>If you want to exercise more consistently, lay out your workout clothes the night before. Make the gym bag always packed.</li>
-  <li>If you want to eat better, restructure your kitchen so the healthy options are visible and accessible and the junk is inconveniently stored.</li>
-  <li>If you want to think more clearly, protect a block of your calendar — even 45 minutes — where you're not in meetings and not checking messages.</li>
-</ul>
-<p>None of these interventions are dramatic. None of them require willpower in the moment. That's the point.</p>
+      <h2>The asymmetry of output</h2>
 
-<h2>The Anchor Habit</h2>
-<p>If you're building a new routine, the most reliable strategy is to attach it to something you already do reliably. This is called habit stacking — linking the new behavior to an existing anchor. After I pour my morning coffee, I will write for fifteen minutes. After I sit down at my desk, I will spend five minutes reviewing my priorities. After I finish lunch, I will take a ten-minute walk.</p>
-<p>The anchor provides the cue. The consistency of the anchor builds the consistency of the habit attached to it.</p>
+      <p>Most knowledge workers have experienced the phenomenon where one day of focused, uninterrupted work produces more than an entire week of ordinary busyness. This isn't because they worked harder that day — it's because they worked on the right things, in the right conditions, without the constant context-switching that fragments attention and depletes decision-making capacity.</p>
 
-<blockquote>You don't rise to the level of your goals. You fall to the level of your systems.</blockquote>
+      <p>This asymmetry — where a small number of high-quality hours can produce more than many low-quality ones — is one of the most important and least acted-upon facts about knowledge work. Acting on it requires doing fewer things, saying no more often, and accepting the discomfort of appearing less busy than your colleagues. These are not easy things to do in most organisations.</p>
 
-<h2>The Meta-Habit: Reflection</h2>
-<p>The single most underrated productivity practice is a weekly reflection. Not a long one — fifteen minutes is enough. What worked this week? What didn't? What one adjustment would make next week meaningfully better? This closes the learning loop and prevents the drift that turns good systems back into chaos. It's the habit that makes all your other habits better.</p>
+      <h2>The list problem</h2>
+
+      <p>To-do lists, in their standard form, are a technology for capturing tasks. They're not a technology for prioritising them, which is the harder and more important problem. A list of 50 items is not a productivity system — it's an anxiety system. It creates the illusion of control while making it harder to identify the two or three things that actually need to happen today.</p>
+
+      <p>The people who manage this well tend to use some version of the same approach: they distinguish between tasks that move the needle on things that matter and tasks that maintain the status quo, and they protect time for the former even when the latter is more urgent. Urgency and importance are not the same thing, and treating them as if they are is one of the most reliable ways to spend years being busy without making meaningful progress on anything.</p>
+
+      <h2>The permission problem</h2>
+
+      <p>Ultimately, the productivity trap is partly an organisational problem. In most workplaces, busyness is rewarded more visibly than output — it's easier to see that someone is in meetings all day than it is to see that they've spent a week on something important that hasn't shipped yet. Fixing this requires managers who can distinguish between the two and who explicitly create the conditions for focused work, including protecting their team's time, being selective about what gets put in front of people, and modelling the behaviour themselves.</p>
+
+      <p>The goal isn't to work less. It's to make the work that gets done worth doing.</p>
+    `,
+  },
+  {
+    title: "What Data Can't Tell You About Your Customers",
+    slug: "what-data-cant-tell-you",
+    excerpt:
+      "Analytics can tell you what customers do. It struggles to tell you why. And the gap between those two things is where most product and marketing decisions go wrong.",
+    date: "February 22, 2026",
+    author: "Sameer",
+    readingTime: "5 min read",
+    category: "Data & Analytics",
+    featured: false,
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop&q=80",
+    content: `
+      <p>Every product team has a version of the same argument. On one side: the data shows that users who complete onboarding are 3x more likely to retain. On the other: something about the onboarding feels off — the drop-off at step three is hard to explain, and the qualitative feedback from users suggests the whole flow feels like too much too soon. The data side tends to win, because data sounds more objective. The qualitative side is often right.</p>
+
+      <p>This isn't an argument against data. It's an argument for understanding what data can and can't do. Analytics tells you what happened — which features were used, which funnels converted, which cohorts retained. It's very good at this. What it struggles to tell you is why any of that happened, what it felt like to be the person on the other end of those numbers, and what would have happened if you'd done something different.</p>
+
+      <h2>The what vs. the why</h2>
+
+      <p>Consider churn. A dashboard can tell you the rate at which customers are leaving, which segments are leaving fastest, and approximately when in the customer lifecycle churn tends to happen. What it can't tell you is what those customers were actually experiencing in the weeks before they left — what was frustrating them, what alternatives they were considering, what would have changed their mind.</p>
+
+      <p>This is information you can only get by talking to people. Not surveying them — the response rates are too low and the questions too leading — but actually talking to them, listening to what they say and what they don't say, following up on the things that don't quite make sense. This is slower and messier than pulling a report, which is probably why most teams don't do it enough.</p>
+
+      <h2>The silent majority problem</h2>
+
+      <p>Data reflects the behaviour of people who stayed — who continued to use the product long enough to generate data. The people who left early, who never converted, who bounced after one session and never came back, are largely invisible in most analytics systems. Their absence from the data doesn't mean their perspective is unimportant — it often means the opposite.</p>
+
+      <p>Some of the most important product insights come from understanding why people didn't choose you, didn't finish the onboarding, or signed up and never came back. These insights require actively going out to find those people, which is hard, or designing data collection that captures early-stage behaviour before users disengage, which requires thinking about measurement as part of the product design rather than an afterthought.</p>
+
+      <h2>Using both</h2>
+
+      <p>The best product and marketing teams treat data and qualitative research as complementary rather than competing. Data surfaces patterns that deserve investigation. Qualitative research explains those patterns and generates hypotheses that data can test. Neither is sufficient on its own, and the teams that treat one as the answer tend to build good-looking dashboards with questionable decisions downstream.</p>
+
+      <p>The discipline is in knowing which question you're trying to answer and which tool is appropriate for answering it — and being honest when the tool you prefer isn't the right one for the job.</p>
     `,
   },
 ];
+
+export function getAllPosts(): Post[] {
+  return posts;
+}
 
 export function getPostBySlug(slug: string): Post | undefined {
   return posts.find((p) => p.slug === slug);
@@ -162,8 +256,4 @@ export function getPostBySlug(slug: string): Post | undefined {
 
 export function getFeaturedPosts(): Post[] {
   return posts.filter((p) => p.featured);
-}
-
-export function getAllPosts(): Post[] {
-  return posts;
 }
