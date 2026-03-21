@@ -5,14 +5,14 @@ import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: {
-    default: "Sam's Spoke — Business, AI & Sustainability",
-    template: "%s | Sam's Spoke",
+    default: "samspoke — Business, AI & Sustainability",
+    template: "%s | samspoke",
   },
   description:
     "Insights at the intersection of business, AI, and sustainability by Sameer. Thoughtful writing on analytics, technology, and designing a better everyday life.",
   metadataBase: new URL("https://samspoke.com"),
   openGraph: {
-    siteName: "Sam's Spoke",
+    siteName: "samspoke",
     locale: "en_US",
     type: "website",
   },
