@@ -23,8 +23,7 @@ export default function HeroSection() {
 
             <p className="text-lg text-slate-500 leading-relaxed mb-8 max-w-xl">
               Thoughtful, practical writing on technology, analytics, and the
-              decisions that shape how we work and live — written by Sameer,
-              based in Singapore.
+              decisions that shape how we work and live — written by Sameer
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -43,7 +42,7 @@ export default function HeroSection() {
             <div className="mt-10 flex flex-wrap gap-4">
               {[
                 { value: "4+", label: "Topic areas" },
-                { value: "Weekly", label: "New articles" },
+                { value: "Monthly", label: "New articles" },
                 { value: "Free", label: "Newsletter" },
               ].map((stat) => (
                 <div
