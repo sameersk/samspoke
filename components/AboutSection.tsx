@@ -16,20 +16,21 @@ export default function AboutSection() {
           {/* Topic tiles */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             {topics.map((t) => (
-              <div
+              <Link
                 key={t.label}
-                className="card p-5 flex flex-col items-center justify-center text-center gap-2 hover:border-teal-200 hover:bg-teal-50 transition-colors cursor-default"
+                href="/blog"
+                className="card p-5 flex flex-col items-center justify-center text-center gap-2 hover:border-teal-200 hover:bg-teal-50 transition-colors cursor-pointer"
               >
                 <span className="text-3xl">{t.icon}</span>
                 <span className="text-sm font-medium text-slate-700">{t.label}</span>
-              </div>
+              </Link>
             ))}
 
             {/* "And more" tile */}
-            <div className="card p-5 flex flex-col items-center justify-center text-center gap-2 bg-teal-600 border-teal-600 hover:bg-teal-700 transition-colors cursor-default">
+            <Link href="/blog" className="card p-5 flex flex-col items-center justify-center text-center gap-2 bg-teal-600 border-teal-600 hover:bg-teal-700 transition-colors cursor-pointer">
               <span className="text-3xl">✍️</span>
               <span className="text-sm font-medium text-white">& More</span>
-            </div>
+            </Link>
           </div>
 
           {/* Text */}
