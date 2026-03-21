@@ -47,7 +47,7 @@ export default function AboutSection() {
               that compound into big results.
             </p>
             <p className="text-slate-600 leading-relaxed mb-8">
-              Sam&apos;s Spoke is where those ideas find a home: a space for clear
+              samspoke is where those ideas find a home: a space for clear
               thinking, honest analysis, and the occasional contrarian take on how
               businesses and individuals can thrive in a rapidly changing world.
             </p>
