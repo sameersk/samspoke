@@ -41,8 +41,9 @@ const focusAreas = [
 
 const highlights = [
   { stat: "6+", label: "years involved in the intersection of healthcare and business" },
-  { stat: "8", label: "Countries travelled to" },
   { stat: "245K+", label: "people reached through social initiatives" },
+  { stat: "8", label: "Countries explored" },
+  { stat: "∞", label: "Curiosity for people and new ideas" },
 ];
 
 export default function AboutPage() {
@@ -87,7 +88,7 @@ export default function AboutPage() {
                 <div className="relative w-64 h-72 sm:w-72 sm:h-80 rounded-3xl overflow-hidden border-4 border-white shadow-xl">
                   <Image
                     src="/headshot.jpg"
-                    alt="Sameer — analytics consultant and writer"
+                    alt="Sameer — business consultant and writer"
                     fill
                     className="object-cover object-top"
                     sizes="(max-width: 640px) 256px, 288px"
@@ -123,11 +124,7 @@ export default function AboutPage() {
             <h2 className="section-heading mb-6">An unlikely path to analytics</h2>
             <div className="space-y-4 text-slate-600 text-base leading-relaxed">
               <p>
-                I studied Biotechnology at R.V. College of Engineering in Bengaluru — not the most
-                obvious starting point for a career in commercial analytics. But the biotech
-                background turned out to be an asset: it taught me how to reason carefully under
-                uncertainty, and it gave me a genuine interest in the pharmaceutical industry I now
-                work in every day.
+                I studied Biotechnology at R.V. College of Engineering in Bengaluru — not the most obvious starting point for a career in commercial analytics, but one that shaped how I think in lasting ways. It became a crash course in problem-solving, teaching me to break down complex questions, connect scientific thinking with real-world business decisions, and build a foundation for the work I do today in the pharmaceutical industry.
               </p>
               <p>
                 During my degree I worked on a predictive AI tool for identifying Alzheimer&apos;s-linked
