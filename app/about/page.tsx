@@ -8,7 +8,7 @@ import { getAllPosts } from "@/lib/posts";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Sameer is a decision analytics consultant at ZS Associates and writer exploring business strategy, data, AI, and sustainability — based in Singapore.",
+    "Sameer is a healthcare business consultant at ZS Associates and writer exploring business strategy, data, lifestyle, and sustainability",
 };
 
 const focusAreas = [
@@ -40,10 +40,9 @@ const focusAreas = [
 ];
 
 const highlights = [
-  { stat: "$600K+", label: "analytics engagement currently leading" },
-  { stat: "$10M+", label: "monthly pharma sales enabled through segmentation" },
-  { stat: "<4%", label: "forecasting error margin achieved" },
-  { stat: "245K+", label: "students impacted through education programme" },
+  { stat: "6+", label: "years involved in the intersection of healthcare and business" },
+  { stat: "8", label: "Countries travelled to" },
+  { stat: "245K+", label: "people reached through social initiatives" },
 ];
 
 export default function AboutPage() {
@@ -61,10 +60,10 @@ export default function AboutPage() {
                 Hi, I&apos;m Sameer.
               </h1>
               <p className="text-lg text-slate-600 leading-relaxed mb-5">
-                I&apos;m a decision analytics consultant at{" "}
+                I&apos;m a business consultant at{" "}
                 <span className="font-semibold text-slate-800">ZS Associates</span>, where I work
                 with Fortune 500 pharmaceutical companies on brand strategy, commercial analytics,
-                and the data infrastructure behind major product decisions. Based in Singapore.
+                and the data infrastructure behind major product decisions. 
               </p>
               <p className="text-lg text-slate-600 leading-relaxed mb-8">
                 I started samspoke as a place to think in public — to write about the ideas that
@@ -151,25 +150,17 @@ export default function AboutPage() {
             <h2 className="section-heading mb-6">What I do now</h2>
             <div className="space-y-4 text-slate-600 text-base leading-relaxed">
               <p>
-                I&apos;m currently leading a $600K brand strategy and analytics engagement with a
-                team of four — managing end-to-end delivery across stakeholder management, solution
-                design, and quality governance. It&apos;s the kind of work where the quality of the
+                I&apos;m currently leading brand strategy and analytics engagements with a
+                team, managing end-to-end delivery across stakeholder management, solution
+                design, and finding insights. It&apos;s the kind of work where the quality of the
                 analysis is only half the challenge; the other half is making sure the right people
-                understand it and act on it.
+                find the business relevance and act on it.
               </p>
-              <p>
-                Before that, I designed field-force targeting and segmentation frameworks that
-                supported over $10M in monthly product sales, and partnered with forecasting teams
-                to bring error margins below 4%. I also sold and delivered a process automation
-                initiative that generated $40K in annual client savings — work that started as a
-                problem I noticed in how analytics outputs were being produced and escalated into a
-                formal engagement.
-              </p>
+         
               <p>
                 Away from consulting, I&apos;ve always had one foot in education and social impact. Early
-                in my career I helped design an entrepreneurship programme that eventually scaled —
-                with NCERT — to reach 245K+ students across Delhi public schools and seed 40K
-                student-led ventures.
+                in my career I helped design an entrepreneurship programmes and continue to be involved in tutoring young kids, indulging them in sports, career guidance and also offering guest lectures on healthcare analytics at my alma-matter RVCE.
+                He enjoys travelling as a way to step into new environments and experience different ways of life. For him, meeting new people and understanding new perspectives is one of the most meaningful parts of the journey.
               </p>
             </div>
           </div>

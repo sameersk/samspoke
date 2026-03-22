@@ -43,7 +43,7 @@ export default function AboutSection() {
             <p className="text-slate-600 leading-relaxed mb-5">
               Sameer is a writer and analyst exploring the intersection of business
               strategy, data analytics, artificial intelligence, and sustainability.
-              Based in Singapore, he writes to make complex ideas accessible and
+              Currently based in bangalore and often nomading as he loves to travel, he writes to make complex ideas accessible and
               actionable — from how AI is reshaping industries to the small habits
               that compound into big results.
             </p>
