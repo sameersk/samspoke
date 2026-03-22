@@ -78,7 +78,7 @@ export default function HeroSection() {
                 <span className="w-8 h-8 rounded-full bg-teal-600 flex items-center justify-center text-white font-bold text-sm shrink-0">S</span>
                 <div>
                   <p className="text-sm font-semibold text-slate-900">Sameer</p>
-                  <p className="text-xs text-slate-400">Singapore · samspoke.com</p>
+                  <p className="text-xs text-slate-400">BLR · samspoke.com</p>
                 </div>
               </div>
             </div>
